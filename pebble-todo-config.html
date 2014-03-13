@@ -1,0 +1,81 @@
+<!-- Copyright (c) 2014 Woozilli, Inc. All rights reserved. --> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!-- Google Fonts -->
+<!--[if IE]>
+    <link href="http://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet" type="text/css">
+<![endif]-->
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+
+<body>
+   <!--page-->
+    <div id="banner">
+        <div class="container intro_wrapper">
+            <div class="inner_content">
+                <div class="row">
+                    <div class="span8">
+                        <h1>Pebble Todo List</h1>
+                        <h3>(On the watch, long press on select to delete an item)</h3>
+                        <form id="form_pebble_todo" class="form-inline">
+                            <input type="text" id="todo_item" name="todo_item" placeholder="Todo Item" maxlength="16">
+                            <input type="hidden" name="pebble_token" value="{{pebble_token}}">
+                            <button type="submit" id="btn_add" class="btn btn-primary">Add</button>
+                        </form>
+                        <hr>
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                  <th>Todo Items</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            {% for entry in data %}
+                                <tr><td>{{ entry['Todo Item'] }}</td></tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div><!-- row -->
+                <div class="row"><div class="span12"><button id="btn_back" class="btn btn-primary">Back</button></div></div>
+            </div>
+        </div>
+    </div>
+<!-- SCRIPTS -->
+
+<script src="js/jquery.js"></script>            
+<script src="js/bootstrap.min.js"></script> 
+<script>
+$(document).ready(function () {
+    $("#btn_add").click(function(){
+        event.preventDefault();
+        event.stopPropagation();
+        var todoItem = $("#todo_item").val();
+        if (todoItem !== undefined && todoItem !== "" && todoItem !== null) {
+            $.ajax({
+                type : 'POST',
+                url : '/pebble_todo_add',
+                data : $('#form_pebble_todo').serialize(),
+                success: function(data, textStatus, jqXHR){
+                    location.reload();
+                }
+            });
+        };
+    })
+    $("#btn_back").click(function() {
+        console.log("Cancel");
+        document.location = "pebblejs://close";
+    });
+});
+</script>
+</body>
+</html>
