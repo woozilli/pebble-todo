@@ -1,16 +1,16 @@
 pebble-todo
 ===========
 
-A demo Pebble ToDo List app that demonstrates the ease of integration with Woozilli Cloud Platform.
+A demo Pebble ToDo List app using the Woozilli Cloud Platform.
 
-For detailed tutorials please visit <https://www.woozilli.com/pebble_showcase>
+For a detailed tutorial please visit <https://www.woozilli.com/pebble_showcase>
 
 #### Content Overview:
 
 * `appinfo.json` -- meta data for the project. Note 'configurable' is present to support the configuration interface.
-* `pebble-todo-config.html` -- a sample configuration interface that allows a user to add a ToDo List item when they are logged in on the Pebble mobile app. See <https://developer.getpebble.com/2/guides/javascript-guide.html> for more details. This page is compatible with Node.js & Swig.
-* `src/js/pebble-js-app.js` -- platform independent PebbleKit JavaScript framework app code executed in the sandbox of the Pebble mobile app. It handles fetching/deletion of the ToDo List items stored on Woozilli Cloud Platform.
-* `src/wz_pebble_todolist.c` -- Pebble watch app code that shows the ToDo List items using MenuLayer. A long press of the select button deletes the selected item(both on the watch app and on Woozilli Cloud Platform).
+* `pebble-todo-config.html` -- a sample configuration interface that allows a user to add a ToDo List item when they are logged in on the Pebble mobile app. See <https://developer.getpebble.com/2/guides/javascript-guide.html> for more details. This page is compatible with Node.js, Express and Swig.
+* `src/js/pebble-js-app.js` -- platform independent PebbleKit JavaScript framework app code executed in the sandbox of the Pebble mobile app. It handles fetching/deleting of the ToDo List items stored on the Woozilli Cloud Platform.
+* `src/wz_pebble_todolist.c` -- Pebble watch app code that shows the ToDo List items using MenuLayer. A long press of the select button deletes the selected item (both on the watch app and on the Woozilli Cloud Platform).
 
 
 ## License
