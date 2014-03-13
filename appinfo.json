@@ -1,0 +1,23 @@
+{
+  "uuid": "f26f965f-3ead-4bfd-a84e-4ef06bd5fc22",
+  "shortName": "Woozilli Todo",
+  "longName": "Woozilli TodoList",
+  "companyName": "Woozilli, Inc.",
+  "versionCode": 1,
+  "versionLabel": "1.0.0",
+  "watchapp": {
+    "watchface": false
+  },
+  "appKeys": {
+    "append_text": 0,
+    "append_id": 1,
+    "delete_item": 2,
+    "fetch_item": 3
+  },
+  "resources": {
+    "media": []
+  },
+  "capabilities": [
+    "configurable"
+  ]
+}
